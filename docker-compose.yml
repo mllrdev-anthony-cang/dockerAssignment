@@ -1,0 +1,12 @@
+version: "3"
+services: 
+    webapp:
+        build: .
+        command: npm start
+        restart: always
+        volumes: # shared data
+            - .:/usr/src/app
+            - /usr/src/app/node_modules # isolated
+        ports: 
+            - 3000:1234
+        tty: true
